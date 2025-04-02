@@ -27,14 +27,11 @@
 //}white, black;
 
 
-void print_b(int test[8][8]){
-
-
-
-printf("\n  A B C D E F G H \n");
-//0=blank   1=white   2=black
+void print_b(int test[8][8]) {
+	printf("\n  A B C D E F G H \n");
+	//0=blank   1=white   2=black
 	//int test[8][8]= { {1,0,0,0,0,0,0,0}, {0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,0,0}, {0,0,1,2,0,0,0,0}, {0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,0,0} };
- //[side number][top number]
+ 	//[side number][top number]
 	int col, row, val;
 	for (row=0; row<=7; row++){
 		printf (" -----------------\n%d|", row+1 ); //new collum
