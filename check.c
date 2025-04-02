@@ -24,14 +24,14 @@ bool nullcheck (int cord[2], int row, int col){
 }
 
 
-int validate (int board[8][8], int cord [2], int race){ //Main function for here
+int validate (int board[8][8], int cord [2], int color){ //Main function for here
   int row, col, f, e; //cord[0] = r, cord[1] = c
   bool cool;
   int tail[2]; //where 'move' will end there program;
   cool=false;
   f=1;
   e=2;
-  if (race==2){// if black's turn instead of white
+  if (color==2){// if black's turn instead of white
     f=2;
     e=1;
   }  
@@ -65,7 +65,7 @@ int validate (int board[8][8], int cord [2], int race){ //Main function for here
             cool=true; //hits end, confrims valid move
             tail[0]=tail[0]+row;
             tail[1]=tail[1]+col;
-            move(board, cord, tail)                            //send input to move function to update board pointer
+            //move(board, cord, tail);                            //send input to move function to update board pointer
           }
           else {
             cool=false;//hits enemy piece, keeps going
@@ -86,7 +86,7 @@ int validate (int board[8][8], int cord [2], int race){ //Main function for here
     //move(board, cord, tail)\\
     return 1;   
   }
-  return 1; //weird ass glitch if return is in here
+  return 1; //weird glitch if return is not in here
   
 // failiure == 0              NULL
 // Success == 1               int[8][8]
