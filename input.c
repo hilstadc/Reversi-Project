@@ -2,6 +2,9 @@
 #include <string.h>
 #include <ctype.h>
 
+#include "check.h"
+#include "board.h"
+
 // Finished
 
 
