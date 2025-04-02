@@ -39,7 +39,6 @@ int main(){
           return 0;
           break;
         case 2: // continue game
-          end_loop = 0;
           break;
         default: // incorrect input check
           printf ("Please enter a 1 or 2 \n");
@@ -53,7 +52,11 @@ int main(){
       for (j=0; j<8; j++){ // runs through each column of the row
         if (board[i][j] == 0){
           b_full = 0; // board is not full
+          break;
         }
+      }
+      if (!b_full) {
+        break;
       }
     }
     if (b_full == 1){ // if board is full, end game
