@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "input.h"
 //unfinished
 
 //gcc -o a Reversi.c board.c input.c[...]

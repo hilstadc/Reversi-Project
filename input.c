@@ -2,6 +2,9 @@
 #include <string.h>
 #include <ctype.h>
 
+#include "check.h"
+#include "board.h"
+
 // Finished
 
 
@@ -10,26 +13,31 @@ int turn (int board[8][8], int player){ // player turn, takes input and calls va
   int row;
   int run = 1;
   int skip;
-  int coords[2];
+  int cords[2];
   int col_n;
   int valid = 0;
   int r_var = 0;
   
   print_b(board); // printing current board
   
-  printf ("Player %d's Turn: \n", player);
+  if (player == 1){
+    printf ("Player o's Turn: \n");
+  }
+  else{
+    printf ("Player *'s Turn: \n");
+  }
   
   while (run == 1){ // runs until user inputs valid spot or skips
-    printf ("Would you like to: \n(1)make a move \n(2) skip");
+    printf ("Would you like to: \n(1)make a move \n(2) skip \n");
     scanf ("%d", &skip);
     
     switch (skip){ // player chooses to make a move or skip
     case 1: // player chose to make a move
-      getchar();
-      printf ("Enter column: ");
-      scanf ("%c", col);
       printf ("Enter row: ");
       scanf ("%d", &row);
+      printf ("Enter column: ");
+      getchar();
+      scanf (" %c", &col);
       col = toupper(col); // converting letter to uppercase
       
       switch(col){ // converting letter to number
@@ -68,12 +76,13 @@ int turn (int board[8][8], int player){ // player turn, takes input and calls va
         printf ("Error, not a valid column \n");
       }
       else{ // if user entered a valid space
-        coords[1] = row-1; // subtracting 1 to account for starting at 0 in arrays
-        coords[2] = col_n-1;
-        valid = validate(board, coords, player); // calling function to check if space is a valid move
+        cords[0] = row-1; // subtracting 1 to account for starting at 0 in arrays
+        cords[1] = col_n-1;
+        valid = validate(board, cords, player); // calling function to check if space is a valid move           
                                                  // valid returns: 0 for invalid move, 1 for valid move
+                                                 
         if (valid == 0){ // not a valid move
-          printf ("[%d, %c] is not a valid move \n");
+          printf ("[%d, %c] is not a valid move \n", row, col);
         }
         else{ // valid move
           r_var = 1; // return-1 player made a move;
