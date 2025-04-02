@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include "move.h"
 //FINISHED
 
 //This function takes and input and the board state, then confrims if the input by the player is a valid move. IF valid, return a 1 and send the inpu to the move function to update board pointer.If invalid, return a 0 and update nothing
