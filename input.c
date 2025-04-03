@@ -30,19 +30,19 @@ int turn (int board[8][8], int player){ // player turn, takes input and calls va
   }
   
   while (run == 1){ // runs until user inputs valid spot or skips
-    printf ("Would you like to: \n(1)make a move \n(2) skip \n");
+    printf ("Would you like to: \n(1) make a move \n(2) skip \n");
     scanf ("%d", &skip);
     while ((c = getchar()) != '\n' && c != EOF) { }
     
     switch (skip){ // player chooses to make a move or skip
     case 1: // player chose to make a move
-      printf ("Enter row: ");
-      scanf ("%d", &row);
-      while ((c = getchar()) != '\n' && c != EOF) { }
       printf ("Enter column: ");
       scanf (" %c", &col);
       while ((c = getchar()) != '\n' && c != EOF) { }
       col = toupper(col); // converting letter to uppercase
+      printf ("Enter row: ");
+      scanf ("%d", &row);
+      while ((c = getchar()) != '\n' && c != EOF) { }
       
       switch(col){ // converting letter to number
       case 'A':
