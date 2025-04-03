@@ -86,10 +86,6 @@ int validate (int board[8][8], int cord [2], int color){ //Main function for her
   if (valid_move==false){    // INVALID
     return 0; //return sends to player
   }
-  else{                // VALID
-    //move(board, cord, tail)\\
-    return 1;   
-  }
   return 1; //weird glitch if return is not in here
   
 // failiure == 0              NULL
