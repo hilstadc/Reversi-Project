@@ -17,10 +17,15 @@ void changeTile(int board[8][8], int tile[2]) {
 }
 
 void move(int board[8][8], int head[2], int tail[2]) {
-    // check to make sure head (new point) is empty and tail (existing tile) is set
+    /*
+    DONT DO THIS IT BREAKS AFTER THE FIRST DIRECTION
     if (board[head[0]][head[1]]) {
         printf("ERROR: Head already occupied!\n");
-    } else if (!board[tail[0]][tail[1]]) {
+    }
+    */
+
+    // check to make sure tail (existing tile) is set to something
+    if (!board[tail[0]][tail[1]]) {
         printf("ERROR: Tail not occupied!\n");
     } else {
         // set head to the same color as the tail
