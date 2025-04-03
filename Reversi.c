@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "input.h"
-//unfinished
+//Finished
 
 //gcc -o a Reversi.c board.c input.c[...]
 
@@ -121,10 +121,17 @@ int main(){
   }
   
   printf ("White's score is: %d \n", score_1); // printing scores of each player
-  printf ("Blacks's score is: %d \n", score_2);
+  printf ("Black's score is: %d \n", score_2);
   
-  (score_1>score_2) ? printf ("White wins! \n") // prints which player won
-                    : printf ("Black wins! \n");
+  if (score_1 > score_2){
+    printf ("White wins! \n");
+  }
+  else if (score_2 > score_1){
+    printf ("Black 2 wins! \n");
+  }
+  else{
+    printf ("Game Tied \n");
+  }
 
 return 0;
 }
