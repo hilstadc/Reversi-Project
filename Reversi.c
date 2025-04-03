@@ -7,7 +7,7 @@
 
 int main(){
 	printf ("Reversi: \n");
-	int board[8][8] = { {0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,0,0}, {0,0,0,2,1,0,0,0}, {0,0,0,1,2,0,0,0}, {0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,0,0} }; // starting board
+	int board[8][8] = { {1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1}, {2,2,2,1,1,2,2,1}, {1,1,0,2,1,0,1,1}, {2,2,0,1,2,0,2,2}, {2,2,1,2,2,1,1,1}, {2,2,2,2,2,2,2,1}, {2,2,1,1,1,1,2,2} }; // starting board
 
   int player = 1;
   int skip1 = 0;
@@ -20,9 +20,41 @@ int main(){
   int b_full = 1;
   
   while (run == 1){  //while game not won
+  
+    b_full = 1; // checking to see if board is full
+    for (i=0; i<8; i++){ // runs through each row
+      for (j=0; j<8; j++){ // runs through each column of the row
+        if (board[i][j] == 0){
+          b_full = 0; // board is not full
+          break;
+        }
+      }
+    }
+    if (b_full == 1){ // if board is full, end game
+      printf ("Board is full, Ending game \n\n");
+      run == 0;
+      break;
+    }  
+  
     //player 1 turn
     player = 1; // white: o
     skip1 = turn(board, player); // turn returns: 1 for played, 2 for skipped
+    
+    b_full = 1; // checking to see if board is full
+    for (i=0; i<8; i++){ // runs through each row
+      for (j=0; j<8; j++){ // runs through each column of the row
+        if (board[i][j] == 0){
+          b_full = 0; // board is not full
+          break;
+        }
+      }
+    }
+    if (b_full == 1){ // if board is full, end game
+      printf ("Board is full, Ending game \n\n");
+      run == 0;
+      break;
+    }
+    
     //player 2 turn
     player = 2; // black: *
     skip2 = turn(board, player);
@@ -33,10 +65,9 @@ int main(){
         scanf("%d", &end);
         switch (end){
         case 1: // end game
-          printf ("Ending game \n");
+          printf ("Ending game \n\n");
           end_loop = 0;
           run = 0;
-          return 0;
           break;
         case 2: // continue game
           break;
@@ -44,24 +75,6 @@ int main(){
           printf ("Please enter a 1 or 2 \n");
         }
       }
-    }
-    
-    b_full = 1; // checking to see if board is full
-    
-    for (i=0; i<8; i++){ // runs through each row
-      for (j=0; j<8; j++){ // runs through each column of the row
-        if (board[i][j] == 0){
-          b_full = 0; // board is not full
-          break;
-        }
-      }
-      if (!b_full) {
-        break;
-      }
-    }
-    if (b_full == 1){ // if board is full, end game
-      printf ("Board is full, Ending game \n");
-      run == 0;
     }
   }
 

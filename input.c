@@ -1,11 +1,10 @@
-#include "input.h"
-
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
 
 #include "check.h"
 #include "board.h"
+#include "input.h"
 
 // Finished
 
@@ -23,10 +22,10 @@ int turn (int board[8][8], int player){ // player turn, takes input and calls va
   print_b(board); // printing current board
   
   if (player == 1){
-    printf ("Player o's Turn: \n");
+    printf ("White Turn: \n");
   }
   else{
-    printf ("Player *'s Turn: \n");
+    printf ("Black Turn: \n");
   }
   
   while (run == 1){ // runs until user inputs valid spot or skips
