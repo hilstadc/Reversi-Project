@@ -32,7 +32,7 @@ int main(){
     }
     if (b_full == 1){ // if board is full, end game
       printf ("Board is full, Ending game \n\n");
-      run == 0;
+      run = 0;
       break;
     }  
   
@@ -51,7 +51,7 @@ int main(){
     }
     if (b_full == 1){ // if board is full, end game
       printf ("Board is full, Ending game \n\n");
-      run == 0;
+      run = 0;
       break;
     }
     
