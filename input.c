@@ -105,4 +105,5 @@ int turn (int board[8][8], int player){ // player turn, takes input and calls va
       printf ("Please enter a 1 or 2 \n");
     }
   }
+  return 0; //Should NEVER get here
 }
