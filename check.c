@@ -56,7 +56,7 @@ int validate (int board[8][8], int cord [2], int color){ //Main function for her
         //                                  Start loop to validate move
         tail[0]=cord[0];
         tail[1]=cord[1];
-        while (valid_move==false){
+        while (1){
           tail[0]=tail[0]+row; //move to next piece
           tail[1]=tail[1]+col;
           if (nullcheck(tail, row, col) == false){
@@ -70,6 +70,7 @@ int validate (int board[8][8], int cord [2], int color){ //Main function for her
             tail[0]=tail[0]+row;
             tail[1]=tail[1]+col;
             move(board, cord, tail);                            //send input to move function to update board pointer
+            break; //end while loop
           }
           else {
             valid_move=false;//hits enemy piece, keeps going
