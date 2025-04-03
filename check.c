@@ -1,5 +1,8 @@
+#include "check.h"
+
 #include <stdio.h>
 #include <stdbool.h>
+
 #include "move.h"
 //FINISHED
 
