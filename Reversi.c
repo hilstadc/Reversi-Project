@@ -120,11 +120,11 @@ int main(){
     }
   }
   
-  printf ("Player 1's score is: %d \n", score_1); // printing scores of each player
-  printf ("Player 2's score is: %d \n", score_2);
+  printf ("White's score is: %d \n", score_1); // printing scores of each player
+  printf ("Blacks's score is: %d \n", score_2);
   
-  (score_1>score_2) ? printf ("Player 1 wins! \n") // prints which player won
-                    : printf ("Player 2 wins! \n");
+  (score_1>score_2) ? printf ("White wins! \n") // prints which player won
+                    : printf ("Black wins! \n");
 
 return 0;
 }
