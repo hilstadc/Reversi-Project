@@ -1,10 +1,19 @@
 #include <stdio.h>
+#include "board.h"
+
+#define default "\x1b[0m" //defining colors
+#define yellow "\x1b[33m"
+#define black "\x1b[30m"
+#define white "\x1b[37m"
+#define backGreen "\x1b[42m"
+#define backBlack "\x1b[40m"
+
 // Finished
 /*
-	 A B C D E F G H               
-	-----------------
+      	 A B C D E F G H               
+      	-----------------
        1| | | | | | | | |
-	-----------------
+      	-----------------
        2| | | | | | | | |
         -----------------
        3| | | | | | | | |
@@ -18,7 +27,7 @@
        7| | | | | | | | |
         -----------------
        8| | | | | | | | |
-	-----------------
+      	-----------------
 */
 
 
@@ -28,34 +37,33 @@
 
 
 void print_b(int test[8][8]) {
-	printf("\n  A B C D E F G H \n");
+	printf(yellow "\n  A B C D E F G H \n" default);
 	//0=blank   1=white   2=black
-	//int test[8][8]= { {1,0,0,0,0,0,0,0}, {0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,0,0}, {0,0,1,2,0,0,0,0}, {0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,0,0} };
  	//[side number][top number]
 	int col, row, val;
 	for (row=0; row<=7; row++){
-		printf (" -----------------\n%d|", row+1 ); //new collum
-		for (col=0;col<=7;col++){ // nned to make "%|"
+		printf (" "backGreen black "-----------------" backBlack yellow " \n%d" backGreen black "|", row+1 ); //new collum
+		for (col=0;col<=7;col++){ // need to make "%|"
 		     
-		      val=test[row][col]; //                                    change me!!!!!!!!1
+		      val=test[row][col]; 
 
 		      if (val==0){ // empty space
 		        printf(" |");
 		      }
 
 		      else if (val==1){ //white space
-		        printf("o|");
+		        printf( white "o" black "|");
 		      }
 
 		      else if (val==2){ //black space
-		        printf("*|");
+		        printf( black "o|");
 		      }
 
 		      else{ //error
-		      	printf("?|");
+		      	printf( default "?" backGreen black"|");
 		      }
 		}
-     printf("\n");
+     printf(backBlack "\n");
 	}
-  printf(" -----------------\n");
+  printf(" " backGreen black "-----------------" default " \n");
 }
