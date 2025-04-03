@@ -27,9 +27,9 @@ bool nullcheck (int cord[2], int row, int col){
 
 int validate (int board[8][8], int cord [2], int color){ //Main function for here
   int row, col, f, e; //cord[0] = r, cord[1] = c
-  bool cool;
+  bool valid_move;
   int tail[2]; //where 'move' will end there program;
-  cool=false;
+  valid_move=false;
   f=1;
   e=2;
   if (color==2){// if black's turn instead of white
@@ -53,7 +53,7 @@ int validate (int board[8][8], int cord [2], int color){ //Main function for her
         //                                  Start loop to validate move
         tail[0]=cord[0];
         tail[1]=cord[1];
-        while (cool==false){
+        while (valid_move==false){
           tail[0]=tail[0]+row; //move to next piece
           tail[1]=tail[1]+col;
           if (nullcheck(tail, row, col) == false){
@@ -63,13 +63,13 @@ int validate (int board[8][8], int cord [2], int color){ //Main function for her
             break; //hits empty
           }
           else if (board[tail[0]+row][tail[1]+col] == f){
-            cool=true; //hits end, confrims valid move
+            valid_move=true; //hits end, confrims valid move
             tail[0]=tail[0]+row;
             tail[1]=tail[1]+col;
-            //move(board, cord, tail);                            //send input to move function to update board pointer
+            move(board, cord, tail);                            //send input to move function to update board pointer
           }
           else {
-            cool=false;//hits enemy piece, keeps going
+            valid_move=false;//hits enemy piece, keeps going
             continue;
           }
         }//while loop
@@ -80,7 +80,7 @@ int validate (int board[8][8], int cord [2], int color){ //Main function for her
     }//col for end
   }//row for end
   
-  if (cool==false){    // INVALID
+  if (valid_move==false){    // INVALID
     return 0; //return sends to player
   }
   else{                // VALID
