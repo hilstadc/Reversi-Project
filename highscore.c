@@ -100,6 +100,7 @@ void check_score (int new_score, int color) {
     print_scores(scores, count);
 
     if (count < MAX_SCORES || new_score > scores[count - 1].score) {
+        int c;
         //get player's name
         char name[NAME_LEN];
         if (color == 1) {
@@ -109,6 +110,7 @@ void check_score (int new_score, int color) {
         }
         printf("Enter your name (max 15 characters): ");
         scanf("%15s", name);
+        while ((c = getchar()) != '\n' && c != EOF) { }
         if (strlen(name) >= NAME_LEN - 1)
             printf("Name truncated to 15 characters.\n");
 
