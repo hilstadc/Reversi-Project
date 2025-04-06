@@ -15,6 +15,6 @@ void print_scores (HighScore scores[], int count);
 void sort_scores (HighScore scores[], int count);
 void read_scores (HighScore scores[], int *count);
 void write_scores (HighScore scores[], int count);
-void check_scores (int new_score, int color);
+void check_score (int new_score, int color);
 
 #endif

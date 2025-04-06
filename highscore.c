@@ -86,7 +86,7 @@ void write_scores (HighScore scores[], int count) {
     fclose(fptr);
 }
 
-void check_scores (int new_score, int color) {
+void check_score (int new_score, int color) {
     //add one for new score
     HighScore scores[MAX_SCORES + 1];
     //number of scores in file
