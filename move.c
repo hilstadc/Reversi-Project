@@ -17,10 +17,15 @@ void changeTile(int board[8][8], int tile[2]) {
 }
 
 void move(int board[8][8], int head[2], int tail[2]) {
-    // check to make sure head (new point) is empty and tail (existing tile) is set
+    /*
+    DONT DO THIS IT BREAKS AFTER THE FIRST DIRECTION
     if (board[head[0]][head[1]]) {
         printf("ERROR: Head already occupied!\n");
-    } else if (!board[tail[0]][tail[1]]) {
+    }
+    */
+
+    // check to make sure tail (existing tile) is set to something
+    if (!board[tail[0]][tail[1]]) {
         printf("ERROR: Tail not occupied!\n");
     } else {
         // set head to the same color as the tail
@@ -28,7 +33,7 @@ void move(int board[8][8], int head[2], int tail[2]) {
 
         //loop variables
         int i, j;
-        int tileToChange[2];
+        int tile_to_change[2];
         if (head[1] == tail[1]) {
             // up or down
             j = head[1];
@@ -36,17 +41,17 @@ void move(int board[8][8], int head[2], int tail[2]) {
                 //up
                 //decrease row by 1 each loop starting from the tile above and ending before the tail 
                 for (i = head[0]-1; i > tail[0]; i--) {
-                    tileToChange[0] = i;
-                    tileToChange[1] = j;
-                    changeTile(board, tileToChange);
+                    tile_to_change[0] = i;
+                    tile_to_change[1] = j;
+                    changeTile(board, tile_to_change);
                 }
             } else if (head[0] < tail[0]) {
                 //down
                 //increase row by 1 each loop starting from the tile above and ending before the tail 
                 for (i = head[0]+1; i < tail[0]; i++) {
-                    tileToChange[0] = i;
-                    tileToChange[1] = j;
-                    changeTile(board, tileToChange);
+                    tile_to_change[0] = i;
+                    tile_to_change[1] = j;
+                    changeTile(board, tile_to_change);
                 }
             } else {
                 printf("ERROR: Tile is in same column but not\n");
@@ -58,9 +63,9 @@ void move(int board[8][8], int head[2], int tail[2]) {
                 // decrease row and column each loop
                 i = head[0]-1;
                 for (j = head[1]-1; j > tail[1]; j--) {
-                    tileToChange[0] = i;
-                    tileToChange[1] = j;
-                    changeTile(board, tileToChange);
+                    tile_to_change[0] = i;
+                    tile_to_change[1] = j;
+                    changeTile(board, tile_to_change);
                     i--;
                 }
             } else if (head[0] < tail[0]) {
@@ -68,9 +73,9 @@ void move(int board[8][8], int head[2], int tail[2]) {
                 //increase row, decrease column
                 i = head[0]+1;
                 for (j = head[1]-1; j > tail[1]; j--) {
-                    tileToChange[0] = i;
-                    tileToChange[1] = j;
-                    changeTile(board, tileToChange);
+                    tile_to_change[0] = i;
+                    tile_to_change[1] = j;
+                    changeTile(board, tile_to_change);
                     i++;
                 }
             } else if (head[0] == tail[0]) {
@@ -78,9 +83,9 @@ void move(int board[8][8], int head[2], int tail[2]) {
                 //keep row, dcrease column
                 i = head[0];
                 for (j = head[1]-1; j > tail[1]; j--) {
-                    tileToChange[0] = i;
-                    tileToChange[1] = j;
-                    changeTile(board, tileToChange);
+                    tile_to_change[0] = i;
+                    tile_to_change[1] = j;
+                    changeTile(board, tile_to_change);
                 }
             } else {
                 printf("ERROR: Tile is left but not left?\n");
@@ -92,9 +97,9 @@ void move(int board[8][8], int head[2], int tail[2]) {
                 //decrease row, increase column
                 i = head[0]-1;
                 for (j = head[1]+1; j < tail[1]; j++) {
-                    tileToChange[0] = i;
-                    tileToChange[1] = j;
-                    changeTile(board, tileToChange);
+                    tile_to_change[0] = i;
+                    tile_to_change[1] = j;
+                    changeTile(board, tile_to_change);
                     i--;
                 }
             } else if (head[0] < tail[0]) {
@@ -102,9 +107,9 @@ void move(int board[8][8], int head[2], int tail[2]) {
                 //increase row, increase column
                 i = head[0]+1;
                 for (j = head[1]+1; j < tail[1]; j++) {
-                    tileToChange[0] = i;
-                    tileToChange[1] = j;
-                    changeTile(board, tileToChange);
+                    tile_to_change[0] = i;
+                    tile_to_change[1] = j;
+                    changeTile(board, tile_to_change);
                     i++;
                 }
             } else if (head[0] == tail[0]) {
@@ -112,9 +117,9 @@ void move(int board[8][8], int head[2], int tail[2]) {
                 //keep row, increase column
                 i = head[0];
                 for (j = head[1]+1; j < tail[1]; j++) {
-                    tileToChange[0] = i;
-                    tileToChange[1] = j;
-                    changeTile(board, tileToChange);
+                    tile_to_change[0] = i;
+                    tile_to_change[1] = j;
+                    changeTile(board, tile_to_change);
                 }
             } else {
                 printf("ERROR: Tile is right but not right?\n");

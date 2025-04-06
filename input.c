@@ -18,6 +18,7 @@ int turn (int board[8][8], int player){ // player turn, takes input and calls va
   int col_n;
   int valid = 0;
   int r_var = 0;
+  int c;
   
   print_b(board); // printing current board
   
@@ -29,17 +30,19 @@ int turn (int board[8][8], int player){ // player turn, takes input and calls va
   }
   
   while (run == 1){ // runs until user inputs valid spot or skips
-    printf ("Would you like to: \n(1)make a move \n(2) skip \n");
+    printf ("Would you like to: \n(1) make a move \n(2) skip \n");
     scanf ("%d", &skip);
+    while ((c = getchar()) != '\n' && c != EOF) { }
     
     switch (skip){ // player chooses to make a move or skip
     case 1: // player chose to make a move
+      printf ("Enter column: ");
+      scanf (" %c", &col);
+      while ((c = getchar()) != '\n' && c != EOF) { }
+      col = toupper(col); // converting letter to uppercase
       printf ("Enter row: ");
       scanf ("%d", &row);
-      printf ("Enter column: ");
-      getchar();
-      scanf (" %c", &col);
-      col = toupper(col); // converting letter to uppercase
+      while ((c = getchar()) != '\n' && c != EOF) { }
       
       switch(col){ // converting letter to number
       case 'A':
@@ -102,4 +105,5 @@ int turn (int board[8][8], int player){ // player turn, takes input and calls va
       printf ("Please enter a 1 or 2 \n");
     }
   }
+  return 0; //Should NEVER get here
 }

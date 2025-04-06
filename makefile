@@ -1,17 +1,23 @@
-CC = cl
-CFLAGS = /W4 /EHsc
-TARGET = Reversi.exe
-SRC = Reversi.c board.c check.c input.c move.c
-OBJ = Reversi.obj board.obj check.obj input.obj move.obj
+# Compiler settings for Linux
+CC = gcc
+CFLAGS = -Wall -g
+TARGET = Reversi
+OBJ = Reversi.o board.o check.o input.o move.o
+RM = rm -f
 
+# Build target
 all: $(TARGET)
 
+# Linking
 $(TARGET): $(OBJ)
-	$(CC) $(OBJ) /Fe$(TARGET)
+	$(CC) $(OBJ) -o $(TARGET)
 
-# Compile each .c file into a .obj file
-.c.obj:
-	$(CC) $(CFLAGS) /c $<
+# Compilation rule
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
+# Clean target
 clean:
-	del /Q $(OBJ) $(TARGET)
+	$(RM) $(OBJ) $(TARGET)
+
+.PHONY: all clean
