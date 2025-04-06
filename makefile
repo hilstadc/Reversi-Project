@@ -1,23 +1,17 @@
-# Compiler settings for Linux
-CC = gcc
-CFLAGS = -Wall -g
-TARGET = Reversi
-OBJ = Reversi.o board.o check.o input.o move.o
-RM = rm -f
+CC = cl
+CFLAGS = /W4 /EHsc
+TARGET = Reversi.exe
+SRC = Reversi.c board.c check.c input.c move.c highscore.c
+OBJ = Reversi.obj board.obj check.obj input.obj move.obj highscore.obj
 
-# Build target
 all: $(TARGET)
 
-# Linking
 $(TARGET): $(OBJ)
-	$(CC) $(OBJ) -o $(TARGET)
+	$(CC) $(OBJ) /Fe$(TARGET)
 
-# Compilation rule
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+# Compile each .c file into a .obj file
+.c.obj:
+	$(CC) $(CFLAGS) /c $<
 
-# Clean target
 clean:
-	$(RM) $(OBJ) $(TARGET)
-
-.PHONY: all clean
+	del /Q $(OBJ) $(TARGET)
