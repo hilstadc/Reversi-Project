@@ -135,7 +135,9 @@ int main(){
   check_score(score_1, 1);
   check_score(score_2, 2);
 
-return 0;
+  printf("Press any key to exit...\n");
+  getchar();
+  return 0;
 }
 
 
