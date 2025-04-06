@@ -53,3 +53,4 @@ dkms.conf
 
 # Vscode project files
 .vscode
+.vs
