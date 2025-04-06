@@ -11,10 +11,10 @@ typedef struct {
 } HighScore;
 
 //function declarations
-void print_scores (HighScore scores[], int count);
-void sort_scores (HighScore scores[], int count);
-void read_scores (HighScore scores[], int *count);
-void write_scores (HighScore scores[], int count);
-void check_score (int new_score, int color);
+void printScores (HighScore scores[], int count);
+void sortScores (HighScore scores[], int count);
+void readScores (HighScore scores[], int *count);
+void writeScores (HighScore scores[], int count);
+void checkScore (int new_score, int color);
 
 #endif

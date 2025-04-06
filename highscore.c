@@ -18,7 +18,7 @@ typedef struct {
 } HighScore;
 */
 
-void print_scores (HighScore scores[], int count) {
+void printScores (HighScore scores[], int count) {
     if (count == 0) {
         printf("No high scores yet.\n");
         return;
@@ -30,7 +30,7 @@ void print_scores (HighScore scores[], int count) {
     }
 }
 
-void sort_scores (HighScore scores[], int count) {
+void sortScores (HighScore scores[], int count) {
     //bubble sort
     int i, j;
     for (i = 0; i < count - 1; i++) {
@@ -44,7 +44,7 @@ void sort_scores (HighScore scores[], int count) {
     }
 }
 
-void read_scores (HighScore scores[], int *count) {
+void readScores (HighScore scores[], int *count) {
     //open highscore file for reading
     FILE* fptr;
     fptr = fopen(FILE_NAME, "r");
@@ -65,7 +65,7 @@ void read_scores (HighScore scores[], int *count) {
     fclose(fptr);
 }
 
-void write_scores (HighScore scores[], int count) {
+void writeScores (HighScore scores[], int count) {
     //open highscore file for writing
     FILE* fptr;
     fptr = fopen(FILE_NAME, "w");
@@ -86,18 +86,18 @@ void write_scores (HighScore scores[], int count) {
     fclose(fptr);
 }
 
-void check_score (int new_score, int color) {
+void checkScore (int new_score, int color) {
     //add one for new score
     HighScore scores[MAX_SCORES + 1];
     //number of scores in file
     int count = 0;
 
     //store existing scores in highscore array
-    read_scores(scores, &count);
+    readScores(scores, &count);
 
     //print leaderboard before checking
     printf("\nCurrent Leaderboard:\n");
-    print_scores(scores, count);
+    printScores(scores, count);
 
     if (count < MAX_SCORES || new_score > scores[count - 1].score) {
         int c;
@@ -119,14 +119,14 @@ void check_score (int new_score, int color) {
         scores[count].score = new_score;
         count++;
 
-        sort_scores(scores, count);
+        sortScores(scores, count);
 
         if (count > MAX_SCORES) count = MAX_SCORES;
 
-        write_scores(scores, count);
+        writeScores(scores, count);
 
         printf("\nUpdated Leaderboard:\n");
-        print_scores(scores, count);
+        printScores(scores, count);
     }
 }
 

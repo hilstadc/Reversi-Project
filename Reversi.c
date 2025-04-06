@@ -135,8 +135,8 @@ int main(){
   }
 
   //check for high scores
-  check_score(score_1, 1);
-  check_score(score_2, 2);
+  checkScore(score_1, 1);
+  checkScore(score_2, 2);
 
   printf("Press any key to exit...\n");
   getchar();
