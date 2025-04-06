@@ -4,9 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include "highscore.h"
+#include "highscore.h"
 
-
+/*
 //for testing
 #define MAX_SCORES 10
 #define NAME_LEN 16
@@ -16,7 +16,7 @@ typedef struct {
     char name[NAME_LEN];
     int score;
 } HighScore;
-
+*/
 
 void print_scores (HighScore scores[], int count) {
     if (count == 0) {
@@ -128,6 +128,7 @@ void check_scores (int new_score, int color) {
     }
 }
 
+/*
 //test code
 int main () {
     int score = 30;
@@ -138,3 +139,4 @@ int main () {
 
     return 0;
 }
+*/
