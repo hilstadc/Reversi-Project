@@ -78,7 +78,7 @@ void write_scores (HighScore scores[], int count) {
 
     //store each value in scores up to the number of scores
     int i;
-    for (int i = 0; i < count; i++) {
+    for (i = 0; i < count; i++) {
         fprintf(fptr, "%s %d\n", scores[i].name, scores[i].score);
     }
 
