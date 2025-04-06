@@ -2,7 +2,7 @@
 CC = gcc
 CFLAGS = -Wall -g
 TARGET = Reversi
-OBJ = Reversi.o board.o check.o input.o move.o
+OBJ = Reversi.o board.o check.o input.o move.o highscore.o
 RM = rm -f
 
 # Build target
