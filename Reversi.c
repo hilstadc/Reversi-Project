@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "input.h"
+#include "highscore.h"
 //Finished
 
 int main(){
