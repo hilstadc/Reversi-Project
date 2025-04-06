@@ -53,6 +53,7 @@ dkms.conf
 
 # Vscode project files
 .vscode
+.vs
 
 # highscore file
 highscores.txt
