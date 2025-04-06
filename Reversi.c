@@ -17,6 +17,7 @@ int main(){
   int j;
   int b_full = 1;
   int skip_var = 0;
+  int c;
   
   while (run == 1){  //while game not won
   
@@ -46,6 +47,7 @@ int main(){
       while (end_loop == 1){
         printf("Would you like to end the game (1)yes (2)no \n");
         scanf("%d", &end);
+        while ((c = getchar()) != '\n' && c != EOF) { }
         switch (end){
         case 1: // end game
           printf ("Ending game \n\n");
@@ -88,6 +90,7 @@ int main(){
       while (end_loop == 1){
         printf("Would you like to end the game (1)yes (2)no \n");
         scanf("%d", &end);
+        while ((c = getchar()) != '\n' && c != EOF) { }
         switch (end){
         case 1: // end game
           printf ("Ending game \n\n");
@@ -135,7 +138,9 @@ int main(){
   check_score(score_1, 1);
   check_score(score_2, 2);
 
-return 0;
+  printf("Press any key to exit...\n");
+  getchar();
+  return 0;
 }
 
 
