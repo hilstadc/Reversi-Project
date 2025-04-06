@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include "input.h"
+#include "highscore.h"
 //Finished
-
-//gcc -o a Reversi.c board.c input.c[...]
-
 
 int main(){
 	printf ("Reversi: \n");
@@ -132,6 +130,10 @@ int main(){
   else{
     printf ("Game Tied \n");
   }
+
+  //check for high scores
+  check_score(score_1, 1);
+  check_score(score_2, 2);
 
 return 0;
 }
