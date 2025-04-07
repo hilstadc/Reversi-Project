@@ -2,6 +2,7 @@
     * Name: Cameron Hilstad
 */
 #include <stdio.h>
+#include "move.h"
 
 void changeTile(int board[8][8], int tile[2]) {
     // if black, make white; if white, make black
